@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,62 +9,178 @@
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; min-height: 100%; }
+
     body {
-      background: #e6e7e7; color: white;
+      background: #e6e7e7;
+      color: white;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
     }
+
     .topbar {
-      height: 88px; flex: 0 0 88px; background: #f1f1f1;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 28px; color: #111;
+      height: 88px;
+      flex: 0 0 88px;
+      background: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      color: #111;
     }
-    .menu { font-size: 34px; line-height: 1; font-weight: 300; }
-    .title { font-size: 17px; font-weight: 600; letter-spacing: .4px; }
-    .language-wrap { display: flex; align-items: center; gap: 8px; }
+
+    .title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: .4px;
+    }
+
+    .language-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .globe { font-size: 24px; }
+
     select {
-      appearance: none; -webkit-appearance: none; border: 0; background: transparent;
-      color: #111; font: inherit; font-size: 15px; font-weight: 600;
-      padding: 10px 20px 10px 4px; max-width: 125px; outline-offset: 3px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 0;
+      background: transparent;
+      color: #111;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 20px 10px 4px;
+      max-width: 125px;
+      outline-offset: 3px;
     }
+
     main {
-      flex: 1; width: 100%; max-width: 900px; margin: 0 auto;
-      padding: 22px 20px 28px; display: flex; flex-direction: column;
+      flex: 1;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 22px 20px 28px;
+      display: flex;
+      flex-direction: column;
     }
+
     .action {
-      border: 0; border-radius: 0; width: 100%; min-height: 190px; flex: 1 1 0;
-      color: rgba(255,255,255,.92); display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 26px; cursor: pointer;
-      font: inherit; transition: filter .15s, opacity .15s;
-      -webkit-tap-highlight-color: transparent; padding: 24px 12px;
+      border: 0;
+      border-radius: 0;
+      width: 100%;
+      min-height: 190px;
+      flex: 1 1 0;
+      color: rgba(255,255,255,.92);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      cursor: pointer;
+      font: inherit;
+      transition: filter .15s, opacity .15s;
+      -webkit-tap-highlight-color: transparent;
+      padding: 24px 12px;
     }
-    .action:active:not(:disabled) { filter: brightness(.94); }
-    .action:disabled { opacity: .58; cursor: not-allowed; }
-    .record { background: #d94d4d; }
-    .normal { background: #a9d96d; }
-    .reverse { background: #69c2d5; }
-    .action-label { font-size: clamp(25px, 5.8vw, 56px); font-weight: 400; letter-spacing: -.8px; text-align: center; }
-    .symbol { width: 88px; height: 88px; display: block; fill: currentColor; flex: 0 0 auto; }
-    .record .symbol { width: 86px; height: 112px; }
-    .status { min-height: 30px; text-align: center; color: #555; font-size: 14px; padding: 8px 8px 0; }
-    body[dir="rtl"] .action-label { letter-spacing: 0; }
-    @media (min-width: 700px) { main { padding-top: 28px; } .action { min-height: 230px; } }
+
+    .action:active:not(:disabled) {
+      filter: brightness(.94);
+    }
+
+    .action:disabled {
+      opacity: .58;
+      cursor: not-allowed;
+    }
+
+    /* BOTÓN ROJO */
+    .record {
+      background: #d94d4d;
+    }
+
+    /* BOTÓN VERDE */
+    .reverse {
+      background: #8fce55;
+    }
+
+    .action-label {
+      font-size: clamp(25px, 5.8vw, 56px);
+      font-weight: 400;
+      letter-spacing: -.8px;
+      text-align: center;
+    }
+
+    .symbol {
+      width: 88px;
+      height: 88px;
+      display: block;
+      fill: currentColor;
+      flex: 0 0 auto;
+    }
+
+    .record .symbol {
+      width: 86px;
+      height: 112px;
+    }
+
+    .status {
+      min-height: 30px;
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+      padding: 8px 8px 0;
+    }
+
+    body[dir="rtl"] .action-label {
+      letter-spacing: 0;
+    }
+
+    @media (min-width: 700px) {
+      main { padding-top: 28px; }
+      .action { min-height: 230px; }
+    }
+
     @media (max-height: 700px) {
-      .topbar { height: 64px; flex-basis: 64px; }
-      main { padding-top: 12px; padding-bottom: 12px; }
-      .action { min-height: 130px; gap: 12px; }
-      .symbol { width: 62px; height: 62px; }
-      .record .symbol { width: 62px; height: 78px; }
+      .topbar {
+        height: 64px;
+        flex-basis: 64px;
+      }
+
+      main {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .action {
+        min-height: 180px;
+        gap: 12px;
+      }
+
+      .symbol {
+        width: 62px;
+        height: 62px;
+      }
+
+      .record .symbol {
+        width: 62px;
+        height: 78px;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <header class="topbar">
-    <span class="menu" aria-hidden="true">☰</span>
     <span class="title">VOICE REVERSE</span>
+
     <label class="language-wrap" aria-label="Language">
       <span class="globe" aria-hidden="true">🌐</span>
+
       <select id="language" aria-label="Select language">
         <option value="es">Español</option>
         <option value="en">English</option>
@@ -78,217 +195,332 @@
   </header>
 
   <main>
+
+    <!-- BOTÓN ROJO: GRABAR -->
     <button class="action record" id="recordBtn" type="button">
+
       <svg class="symbol" viewBox="0 0 88 112" aria-hidden="true">
         <rect x="21" y="0" width="46" height="78" rx="23"></rect>
         <path d="M9 68h12c0 17 10 29 23 29s23-12 23-29h12c0 22-14 38-35 41v3H44v-3C23 106 9 90 9 68z"></path>
       </svg>
-      <span class="action-label" id="recordLabel">Empezar a grabar</span>
+
+      <span class="action-label" id="recordLabel">
+        Empezar a grabar
+      </span>
     </button>
 
-    <button class="action normal" id="playBtn" type="button" disabled>
-      <svg class="symbol" viewBox="0 0 100 100" aria-hidden="true">
-        <path d="M23 9c-7-4-14 1-14 9v64c0 8 7 13 14 9l63-32c8-4 8-14 0-18L23 9z"></path>
-      </svg>
-      <span class="action-label" id="playLabel">Reproducir grabación</span>
-    </button>
+    <!-- BOTÓN VERDE: REPRODUCIR AL REVÉS -->
+    <button class="action reverse" id="reverseBtn" type="button" disabled>
 
-    <button class="action reverse" id="reverseBtn" type="button">
       <svg class="symbol" viewBox="0 0 100 100" aria-hidden="true">
         <path d="M77 9c7-4 14 1 14 9v64c0 8-7 13-14 9L14 59c-8-4-8-14 0-18L77 9z"></path>
       </svg>
-      <span class="action-label" id="reverseLabel">Reproducir al revés</span>
+
+      <span class="action-label" id="reverseLabel">
+        Reproducir al revés
+      </span>
     </button>
-    <div class="status" id="status" role="status" aria-live="polite">Pulsa «Empezar a grabar» y permite el acceso al micrófono.</div>
+
+    <div class="status" id="status" role="status" aria-live="polite">
+      Pulsa «Empezar a grabar» y permite el acceso al micrófono.
+    </div>
+
   </main>
 
   <script>
+
     const translations = {
+
       es: {
-        record: "Empezar a grabar", stop: "Detener grabación", play: "Reproducir grabación",
-        reverse: "Reproducir al revés", initial: "Pulsa «Empezar a grabar» y permite el acceso al micrófono.",
-        saving: "Guardando grabación…", ready: "Grabación lista. Puedes escucharla normal o al revés.",
+        record: "Empezar a grabar",
+        stop: "Detener grabación",
+        reverse: "Reproducir al revés",
+        initial: "Pulsa «Empezar a grabar» y permite el acceso al micrófono.",
+        saving: "Guardando grabación…",
+        ready: "Grabación lista. Ya puedes escucharla al revés.",
         recording: "Grabando… vuelve a pulsar el botón rojo para detener.",
         permission: "Necesitamos permiso para usar el micrófono. Permítelo e inténtalo de nuevo.",
-        original: "Reproduciendo grabación original…", finished: "La reproducción ha terminado.",
-        reversePlaying: "Reproduciendo al revés…", reverseFinished: "La reproducción invertida ha terminado.",
-        playError: "No se ha podido reproducir la grabación en este navegador.",
+        reversePlaying: "Reproduciendo al revés…",
+        reverseFinished: "La reproducción invertida ha terminado.",
         reverseError: "Este navegador no permite invertir esta grabación."
       },
+
       en: {
-        record: "Start Recording", stop: "Stop Recording", play: "Play Recorded",
-        reverse: "Play Reverse", initial: "Tap “Start Recording” and allow microphone access.",
-        saving: "Saving recording…", ready: "Recording ready. Play it normally or in reverse.",
+        record: "Start Recording",
+        stop: "Stop Recording",
+        reverse: "Play Reverse",
+        initial: "Tap Start Recording and allow microphone access.",
+        saving: "Saving recording…",
+        ready: "Recording ready. You can now play it in reverse.",
         recording: "Recording… tap the red button again to stop.",
         permission: "Microphone access is needed. Please allow it and try again.",
-        original: "Playing original recording…", finished: "Playback finished.",
-        reversePlaying: "Playing in reverse…", reverseFinished: "Reverse playback finished.",
-        playError: "Could not play this recording in this browser.",
-        reverseError: "Reverse playback is not supported by this browser for this recording."
+        reversePlaying: "Playing in reverse…",
+        reverseFinished: "Reverse playback finished.",
+        reverseError: "Reverse playback is not supported by this browser."
       },
+
       fr: {
-        record: "Commencer l’enregistrement", stop: "Arrêter l’enregistrement", play: "Lire l’enregistrement",
-        reverse: "Lire à l’envers", initial: "Appuyez sur « Commencer l’enregistrement » et autorisez le micro.",
-        saving: "Enregistrement en cours de sauvegarde…", ready: "Enregistrement prêt. Écoutez-le normalement ou à l’envers.",
+        record: "Commencer l’enregistrement",
+        stop: "Arrêter l’enregistrement",
+        reverse: "Lire à l’envers",
+        initial: "Appuyez sur Commencer l’enregistrement et autorisez le micro.",
+        saving: "Enregistrement en cours de sauvegarde…",
+        ready: "Enregistrement prêt. Vous pouvez maintenant l’écouter à l’envers.",
         recording: "Enregistrement… appuyez de nouveau sur le bouton rouge pour arrêter.",
         permission: "L’accès au microphone est nécessaire. Autorisez-le puis réessayez.",
-        original: "Lecture de l’enregistrement original…", finished: "Lecture terminée.",
-        reversePlaying: "Lecture à l’envers…", reverseFinished: "Lecture inversée terminée.",
-        playError: "Impossible de lire cet enregistrement dans ce navigateur.",
-        reverseError: "Ce navigateur ne permet pas d’inverser cet enregistrement."
+        reversePlaying: "Lecture à l’envers…",
+        reverseFinished: "Lecture inversée terminée.",
+        reverseError: "Ce navigateur ne permet pas cette lecture inversée."
       },
+
       it: {
-        record: "Inizia a registrare", stop: "Ferma registrazione", play: "Riproduci registrazione",
-        reverse: "Riproduci al contrario", initial: "Premi « Inizia a registrare » e consenti l’accesso al microfono.",
-        saving: "Salvataggio della registrazione…", ready: "Registrazione pronta. Riproducila normalmente o al contrario.",
+        record: "Inizia a registrare",
+        stop: "Ferma registrazione",
+        reverse: "Riproduci al contrario",
+        initial: "Premi Inizia a registrare e consenti l’accesso al microfono.",
+        saving: "Salvataggio della registrazione…",
+        ready: "Registrazione pronta. Ora puoi ascoltarla al contrario.",
         recording: "Registrazione in corso… premi di nuovo il pulsante rosso per fermare.",
         permission: "È necessario consentire l’accesso al microfono. Autorizzalo e riprova.",
-        original: "Riproduzione della registrazione originale…", finished: "Riproduzione terminata.",
-        reversePlaying: "Riproduzione al contrario…", reverseFinished: "Riproduzione inversa terminata.",
-        playError: "Impossibile riprodurre questa registrazione in questo browser.",
-        reverseError: "Questo browser non supporta la riproduzione inversa di questa registrazione."
+        reversePlaying: "Riproduzione al contrario…",
+        reverseFinished: "Riproduzione inversa terminata.",
+        reverseError: "Questo browser non supporta la riproduzione inversa."
       },
+
       ar: {
-        record: "ابدأ التسجيل", stop: "إيقاف التسجيل", play: "تشغيل التسجيل",
-        reverse: "تشغيل بالعكس", initial: "اضغط على «ابدأ التسجيل» واسمح باستخدام الميكروفون.",
-        saving: "جارٍ حفظ التسجيل…", ready: "التسجيل جاهز. يمكنك تشغيله بشكل عادي أو بالعكس.",
+        record: "ابدأ التسجيل",
+        stop: "إيقاف التسجيل",
+        reverse: "تشغيل بالعكس",
+        initial: "اضغط على ابدأ التسجيل واسمح باستخدام الميكروفون.",
+        saving: "جارٍ حفظ التسجيل…",
+        ready: "التسجيل جاهز. يمكنك الآن تشغيله بالعكس.",
         recording: "جارٍ التسجيل… اضغط على الزر الأحمر مرة أخرى للإيقاف.",
         permission: "يلزم السماح باستخدام الميكروفون. امنح الإذن ثم حاول مرة أخرى.",
-        original: "جارٍ تشغيل التسجيل الأصلي…", finished: "انتهى التشغيل.",
-        reversePlaying: "جارٍ التشغيل بالعكس…", reverseFinished: "انتهى التشغيل العكسي.",
-        playError: "تعذّر تشغيل هذا التسجيل في هذا المتصفح.",
+        reversePlaying: "جارٍ التشغيل بالعكس…",
+        reverseFinished: "انتهى التشغيل العكسي.",
         reverseError: "هذا المتصفح لا يدعم تشغيل هذا التسجيل بالعكس."
       },
+
       tr: {
-        record: "Kaydı Başlat", stop: "Kaydı Durdur", play: "Kaydı Oynat",
-        reverse: "Tersten Oynat", initial: "«Kaydı Başlat» düğmesine dokunun ve mikrofon erişimine izin verin.",
-        saving: "Kayıt kaydediliyor…", ready: "Kayıt hazır. Normal veya tersten oynatabilirsiniz.",
+        record: "Kaydı Başlat",
+        stop: "Kaydı Durdur",
+        reverse: "Tersten Oynat",
+        initial: "Kaydı başlat düğmesine dokunun ve mikrofon erişimine izin verin.",
+        saving: "Kayıt kaydediliyor…",
+        ready: "Kayıt hazır. Artık tersten oynatabilirsiniz.",
         recording: "Kaydediliyor… durdurmak için kırmızı düğmeye tekrar dokunun.",
         permission: "Mikrofon erişimi gerekiyor. Lütfen izin verip tekrar deneyin.",
-        original: "Orijinal kayıt oynatılıyor…", finished: "Oynatma tamamlandı.",
-        reversePlaying: "Tersten oynatılıyor…", reverseFinished: "Tersten oynatma tamamlandı.",
-        playError: "Bu kayıt bu tarayıcıda oynatılamadı.",
-        reverseError: "Bu tarayıcı bu kaydı tersten oynatmayı desteklemiyor."
+        reversePlaying: "Tersten oynatılıyor…",
+        reverseFinished: "Tersten oynatma tamamlandı.",
+        reverseError: "Bu tarayıcı tersten oynatmayı desteklemiyor."
       },
+
       pt: {
-        record: "Começar a gravar", stop: "Parar gravação", play: "Reproduzir gravação",
-        reverse: "Reproduzir ao contrário", initial: "Toque em «Começar a gravar» e permita o acesso ao microfone.",
-        saving: "A guardar a gravação…", ready: "Gravação pronta. Pode ouvi-la normalmente ou ao contrário.",
+        record: "Começar a gravar",
+        stop: "Parar gravação",
+        reverse: "Reproduzir ao contrário",
+        initial: "Toque em Começar a gravar e permita o acesso ao microfone.",
+        saving: "A guardar a gravação…",
+        ready: "Gravação pronta. Já pode ouvi-la ao contrário.",
         recording: "A gravar… toque novamente no botão vermelho para parar.",
         permission: "É necessário permitir o acesso ao microfone. Autorize e tente novamente.",
-        original: "A reproduzir a gravação original…", finished: "Reprodução terminada.",
-        reversePlaying: "A reproduzir ao contrário…", reverseFinished: "Reprodução invertida terminada.",
-        playError: "Não foi possível reproduzir esta gravação neste navegador.",
-        reverseError: "Este navegador não suporta a reprodução invertida desta gravação."
+        reversePlaying: "A reproduzir ao contrário…",
+        reverseFinished: "Reprodução invertida terminada.",
+        reverseError: "Este navegador não suporta a reprodução invertida."
       },
+
       de: {
-        record: "Aufnahme starten", stop: "Aufnahme stoppen", play: "Aufnahme abspielen",
-        reverse: "Rückwärts abspielen", initial: "Tippe auf „Aufnahme starten“ und erlaube den Mikrofonzugriff.",
-        saving: "Aufnahme wird gespeichert…", ready: "Aufnahme bereit. Normal oder rückwärts abspielen.",
+        record: "Aufnahme starten",
+        stop: "Aufnahme stoppen",
+        reverse: "Rückwärts abspielen",
+        initial: "Tippe auf Aufnahme starten und erlaube den Mikrofonzugriff.",
+        saving: "Aufnahme wird gespeichert…",
+        ready: "Aufnahme bereit. Du kannst sie jetzt rückwärts abspielen.",
         recording: "Aufnahme läuft… tippe erneut auf die rote Taste, um zu stoppen.",
         permission: "Mikrofonzugriff ist erforderlich. Bitte erlauben und erneut versuchen.",
-        original: "Originalaufnahme wird abgespielt…", finished: "Wiedergabe beendet.",
-        reversePlaying: "Wird rückwärts abgespielt…", reverseFinished: "Rückwärtswiedergabe beendet.",
-        playError: "Diese Aufnahme kann in diesem Browser nicht abgespielt werden.",
-        reverseError: "Dieser Browser unterstützt die Rückwärtswiedergabe dieser Aufnahme nicht."
+        reversePlaying: "Wird rückwärts abgespielt…",
+        reverseFinished: "Rückwärtswiedergabe beendet.",
+        reverseError: "Dieser Browser unterstützt die Rückwärtswiedergabe nicht."
       }
+
     };
 
     const languageSelect = document.getElementById('language');
     const recordBtn = document.getElementById('recordBtn');
     const recordLabel = document.getElementById('recordLabel');
-    const playBtn = document.getElementById('playBtn');
     const reverseBtn = document.getElementById('reverseBtn');
+    const reverseLabel = document.getElementById('reverseLabel');
     const statusEl = document.getElementById('status');
 
-    let recorder = null, chunks = [], recordingBlob = null, audioUrl = null;
-    let audioContext = null, currentAudio = null;
+    let recorder = null;
+    let chunks = [];
+    let recordingBlob = null;
+    let audioContext = null;
     let statusKey = 'initial';
 
-    function t(key) { return translations[languageSelect.value][key]; }
-    function setStatus(key) { statusKey = key; statusEl.textContent = t(key); }
+    function t(key) {
+      return translations[languageSelect.value][key];
+    }
+
+    function setStatus(key) {
+      statusKey = key;
+      statusEl.textContent = t(key);
+    }
 
     function applyLanguage() {
       const lang = languageSelect.value;
       const rtl = lang === 'ar';
+
       document.documentElement.lang = lang;
       document.documentElement.dir = rtl ? 'rtl' : 'ltr';
       document.body.dir = rtl ? 'rtl' : 'ltr';
-      recordLabel.textContent = recorder && recorder.state === 'recording' ? t('stop') : t('record');
-      document.getElementById('playLabel').textContent = t('play');
-      document.getElementById('reverseLabel').textContent = t('reverse');
+
+      recordLabel.textContent =
+        recorder && recorder.state === 'recording'
+          ? t('stop')
+          : t('record');
+
+      reverseLabel.textContent = t('reverse');
       statusEl.textContent = t(statusKey);
+
       localStorage.setItem('voicegame-language', lang);
     }
+
     languageSelect.addEventListener('change', applyLanguage);
+
     const savedLanguage = localStorage.getItem('voicegame-language');
-    if (savedLanguage && translations[savedLanguage]) languageSelect.value = savedLanguage;
+
+    if (savedLanguage && translations[savedLanguage]) {
+      languageSelect.value = savedLanguage;
+    }
+
     applyLanguage();
 
+    // GRABAR AUDIO
+
     recordBtn.addEventListener('click', async () => {
+
       if (recorder && recorder.state === 'recording') {
         recorder.stop();
         recordLabel.textContent = t('record');
         setStatus('saving');
         return;
       }
+
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: true
+        });
+
         chunks = [];
+
         const options = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
-          ? { mimeType: 'audio/webm;codecs=opus' } : {};
+          ? { mimeType: 'audio/webm;codecs=opus' }
+          : {};
+
         recorder = new MediaRecorder(stream, options);
-        recorder.ondataavailable = event => { if (event.data.size) chunks.push(event.data); };
+
+        recorder.ondataavailable = event => {
+          if (event.data.size) chunks.push(event.data);
+        };
+
         recorder.onstop = () => {
-          recordingBlob = new Blob(chunks, { type: recorder.mimeType || 'audio/webm' });
+
+          recordingBlob = new Blob(chunks, {
+            type: recorder.mimeType || 'audio/webm'
+          });
+
           stream.getTracks().forEach(track => track.stop());
-          if (audioUrl) URL.revokeObjectURL(audioUrl);
-          audioUrl = URL.createObjectURL(recordingBlob);
-          playBtn.disabled = false; reverseBtn.disabled = false;
+
+          reverseBtn.disabled = false;
+
           setStatus('ready');
         };
+
         recorder.start();
+
         recordLabel.textContent = t('stop');
-        playBtn.disabled = true; reverseBtn.disabled = true;
+        reverseBtn.disabled = true;
+
         setStatus('recording');
-      } catch (error) { setStatus('permission'); }
+
+      } catch (error) {
+        setStatus('permission');
+      }
+
     });
 
-    function stopCurrentAudio() {
-      if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
-    }
-
-    playBtn.addEventListener('click', async () => {
-      if (!audioUrl) return;
-      stopCurrentAudio();
-      currentAudio = new Audio(audioUrl);
-      currentAudio.onended = () => setStatus('finished');
-      currentAudio.onerror = () => setStatus('playError');
-      try { await currentAudio.play(); setStatus('original'); }
-      catch (error) { setStatus('playError'); }
-    });
+    // REPRODUCIR AUDIO AL REVÉS
 
     reverseBtn.addEventListener('click', async () => {
+
       if (!recordingBlob) return;
-      stopCurrentAudio();
+
       try {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) throw new Error('Audio is not supported');
-        if (!audioContext) audioContext = new AudioContextClass();
-        await audioContext.resume();
-        const bytes = await recordingBlob.arrayBuffer();
-        const decoded = await audioContext.decodeAudioData(bytes);
-        const reversed = audioContext.createBuffer(decoded.numberOfChannels, decoded.length, decoded.sampleRate);
-        for (let channel = 0; channel < decoded.numberOfChannels; channel++) {
-          const source = decoded.getChannelData(channel), target = reversed.getChannelData(channel);
-          for (let i = 0, j = source.length - 1; i < source.length; i++, j--) target[i] = source[j];
+
+        const AudioContextClass =
+          window.AudioContext || window.webkitAudioContext;
+
+        if (!AudioContextClass) {
+          throw new Error('Audio is not supported');
         }
+
+        if (!audioContext) {
+          audioContext = new AudioContextClass();
+        }
+
+        await audioContext.resume();
+
+        const bytes = await recordingBlob.arrayBuffer();
+
+        const decoded = await audioContext.decodeAudioData(bytes);
+
+        const reversed = audioContext.createBuffer(
+          decoded.numberOfChannels,
+          decoded.length,
+          decoded.sampleRate
+        );
+
+        for (
+          let channel = 0;
+          channel < decoded.numberOfChannels;
+          channel++
+        ) {
+
+          const source = decoded.getChannelData(channel);
+          const target = reversed.getChannelData(channel);
+
+          for (
+            let i = 0, j = source.length - 1;
+            i < source.length;
+            i++, j--
+          ) {
+            target[i] = source[j];
+          }
+
+        }
+
         const sourceNode = audioContext.createBufferSource();
-        sourceNode.buffer = reversed; sourceNode.connect(audioContext.destination);
-        sourceNode.onended = () => setStatus('reverseFinished');
-        sourceNode.start(); setStatus('reversePlaying');
-      } catch (error) { setStatus('reverseError'); }
+
+        sourceNode.buffer = reversed;
+        sourceNode.connect(audioContext.destination);
+
+        sourceNode.onended = () => {
+          setStatus('reverseFinished');
+        };
+
+        sourceNode.start();
+
+        setStatus('reversePlaying');
+
+      } catch (error) {
+        setStatus('reverseError');
+      }
+
     });
+
   </script>
+
 </body>
 </html>
